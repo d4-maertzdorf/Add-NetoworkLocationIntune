@@ -148,6 +148,15 @@ foreach ($directory in $dirs) {
     write-log -logtext "Added"
     }
 
+
+    ## Drive Users GDPR FS02
+write-log -logtext "\\fs02.corp.domain.com\gdpr$"
+$dirs = Get-childItem -Path "\\fs02.corp.domain.com\gdpr$" -Directory -ErrorAction SilentlyContinue
+    $errTimeStamp = date
+    $directory = "gdpr"
+    Add-NetworkLocation -name $directory -targetPath "\\fs02.corp.domain.com\gdpr$"
+    write-log -logtext "Added"
+
 $counterLoop = 3
 }
 if ($counterLoop -eq 3 ) {
